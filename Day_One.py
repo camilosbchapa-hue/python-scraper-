@@ -52,8 +52,37 @@ plt.show()
 
 
 
+"""
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+import matplotlib.pyplot as plt
 
+datos = []
 
+for pagina in range(1, 51):
+    url = f"https://books.toscrape.com/catalogue/page-{pagina}.html"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    libros = soup.find_all("article", class_="product_pod")
+    
+    for libro in libros:
+        titulo = libro.find("h3").find("a")["title"]
+        precio = libro.find("p", class_="price_color").text
+        datos.append({"Titulo": titulo, "Precio": precio})
+
+df = pd.DataFrame(datos)
+df["Precio"] = df["Precio"].str.encode("ascii", "ignore").str.decode("ascii").str.strip().astype(float)
+df.to_excel("libros.xlsx", index=False)
+print(f"Total de libros: {len(df)}")
+plt.figure(figsize=(12, 6))
+plt.hist(df["Precio"], bins=20, color="steelblue")
+plt.xlabel("Precio en £")
+plt.ylabel("Cantidad de libros")
+plt.title("Distribución de Precios - 1000 Libros")
+plt.tight_layout()
+plt.show()
+"""
 
 
 
