@@ -55,7 +55,7 @@ plt.show()
 
 
 
-"""
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -85,11 +85,11 @@ plt.ylabel("Cantidad de libros")
 plt.title("Distribución de Precios - 1000 Libros")
 plt.tight_layout()
 plt.show()
-"""
+
 
 
 #Logica
-"""
+
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 print("¿Quieres saber si eres mayor de edad?")
@@ -221,6 +221,6 @@ d = int(ventas[3])
 suma = a + b + c + d
 
 print(f"{suma}")
-"""
+
 
 
