@@ -35,12 +35,15 @@ for libro in libros:
 df = pd.DataFrame(datos)
 print(df)
 
-# Guarda toda la tabla de pandas en un archivo excel #
-df.to_excel("libros.xlsx", index=False)
-print("¡Archivo Excel Creado Con Exito!")
+
 
 # Convertir Precio de texto a numero: #
 df["Precio"] = df["Precio"].str.encode("ascii", "ignore").str.decode("ascii").str.strip().astype(float)
+
+# Guarda toda la tabla de pandas en un archivo excel #
+df.to_excel("PrimerEjemplo.xlsx", index=False)
+print("¡Archivo Excel Creado Con Exito!")
+
 # Creacion De grafica #
 
 plt.figure(figsize=(12, 6))
